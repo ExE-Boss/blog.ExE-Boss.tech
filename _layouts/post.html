@@ -1,0 +1,28 @@
+---
+layout:	default
+include-js:
+    - post
+---
+
+{% include header.html %}
+
+{% capture content %}
+<h1>{{ page.title }}</h1>
+<div>
+	{{ content }}
+</div>
+{% endcapture %}
+
+{% capture aside %}
+<div id="author-container" class="bg-light rounded border p-3">
+	<h1 class="text-center">Author</h1>
+	<div class="mw-100 mx-auto"><div><img id="author-picture" class="rounded-circle"/></div></div>
+	<h2 id="author-name" class="text-center"></h2>
+</div>
+{% endcapture %}
+
+{% include blog-layout.html main=content aside=aside min-width="md" %}
+
+{% if page.comments %}
+{% include post/comments.html comments=page.comments %}
+{% endif %}

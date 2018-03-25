@@ -1,0 +1,48 @@
+{% if paginator and paginator.total_pages > 1 %}
+{% assign next_next_page = paginator.next_page | plus: 1 %}
+<nav aria-label="Page navigation">
+	<ul class="pagination{% if include.justify %} justify-content-{{ include.justify }}{% endif %}">
+		<li class="page-item{% unless paginator.previous_page %} disabled{% endunless %}">
+			{% if paginator.previous_page %}<a class="page-link" href="{{ site.baseurl }}{{ paginator.previous_page_path }}" aria-label="Previous">{% else %}<span class="page-link" aria-label="Previous">{% endif %}
+				<span aria-hidden="true">«</span>
+				<span class="sr-only">Previous</span>
+			{% unless paginator.previous_page %}</span>{% else %}</a>{% endunless %}
+		</li>
+		{% unless paginator.page == 1 %}
+		<li class="page-item">
+			<a class="page-link" href="{{ site.baseurl }}/">1</a>
+		</li>
+		{% unless paginator.previous_page == 1 %}
+		{% unless paginator.previous_page == 2 %}
+		<li class="page-item disabled"><span class="page-link">…</span></li>
+		{% endunless %}
+		<li class="page-item">
+			<a class="page-link" href="{{ site.baseurl }}{{ paginator.previous_page_path }}">{{ paginator.previous_page }}</a>
+		</li>
+		{% endunless %}
+		{% endunless %}
+		<li class="page-item active">
+			<span class="page-link">{{ paginator.page }}<span class="sr-only"> (current)</span></span>
+		</li>
+		{% unless paginator.total_pages == paginator.page %}
+		{% unless paginator.next_page == paginator.total_pages %}
+		<li class="page-item">
+			<a class="page-link" href="{{ site.baseurl }}{{ paginator.next_page_path }}">{{ paginator.next_page }}</a>
+		</li>
+		{% unless next_next_page == paginator.total_pages %}
+		<li class="page-item disabled"><span class="page-link">…</span></li>
+		{% endunless %}
+		{% endunless %}
+		<li class="page-item">
+			<a class="page-link" href="{{ site.baseurl }}/page/{{ paginator.total_pages }}">{{ paginator.total_pages }}</a>
+		</li>
+		{% endunless %}
+		<li class="page-item{% unless paginator.next_page %} disabled{% endunless %}">
+			{% if paginator.next_page %}<a class="page-link" href="{{ site.baseurl }}{{ paginator.next_page_path }}" aria-label="Next">{% else %}<span class="page-link" aria-label="Next">{% endif %}
+				<span aria-hidden="true">»</span>
+				<span class="sr-only">Next</span>
+			{% unless paginator.next_page %}</span>{% else %}</a>{% endunless %}
+		</li>
+	</ul>
+</nav>
+{% endif %}

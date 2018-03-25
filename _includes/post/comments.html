@@ -1,0 +1,21 @@
+<section class="container pb-5" id="comments" data-issue="{{ include.comments }}">
+	<template id="comment-template">
+		<eb-github-comment class="container rounded mb-3">
+			<div class="row">
+				<div class="col-12 col-md-3 py-2 pb-md-0" id="comment-author">
+					<div class="row pt-2 pt-md-3 justify-content-center">
+						<div class="col-11 col-md-12 offset-md-0 text-nowrap">
+							<img id="comment-author-picture" class="align-middle rounded"/><h3 id="comment-author-name" class="text-left align-middle d-inline-block d-md-none ml-2"></h3>
+						</div>
+						<h3 id="comment-author-name" class="col-8 col-sm-9 col-md-12 text-left text-md-center align-middle d-none d-md-block"></h3>
+					</div>
+				</div>
+				<div class="col-12 col-md-9 py-2" id="comment-content">
+					<div id="comment-text"></div>
+					<div id="comment-reactions"></div>
+				</div>
+			</div>
+		</eb-github-comment>
+	</template>
+	<h2 class="border-bottom pb-2 mb-3">Comments <a class="small" href="https://github.com/ExE-Boss/blog.ExE-Boss.tech/issues/{{ include.comments }}">(loaded from GitHub)</a></h2>
+</section>

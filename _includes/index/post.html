@@ -1,0 +1,7 @@
+<section class="post">
+	<header><h1><a href="{{ site.baseurl }}{{ include.post.url }}">{{ post.title }}</a></h1></header>
+	<main>
+		{{ post.content | truncatewords: 50, "…" }}
+	</main>
+	<h4><a href="{{ site.baseurl }}{{ include.post.url }}">Read more »</a></h4>
+</section>

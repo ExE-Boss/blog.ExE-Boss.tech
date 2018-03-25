@@ -1,9 +1,10 @@
-[![Status](https://img.shields.io/website/https/ExE-Boss.tech/blog.svg?label=status)](https://ExE-Boss.tech/blog)
+[![Status](https://img.shields.io/website/https/blog.ExE-Boss.tech.svg?label=status)](https://blog.ExE-Boss.tech)
+[![License](https://img.shields.io/github/license/ExE-Boss/exe-boss.github.io.svg)](https://github.com/ExE-Boss/exe-boss.github.io/blob/master/LICENSE)
 
-The Blog comments repository
-============================
+ExE Boss’s Blog
+===============
 
-This repository handles comments on my blog.
+My blog on GitHub, issues also serve as comments.
 
 Inspired by the following:
 --------------------------

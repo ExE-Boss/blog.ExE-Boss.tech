@@ -1,0 +1,20 @@
+---
+---
+
+{% include header.html %}
+
+{% capture posts %}
+	{% for post in paginator.posts %}
+		{% include index/post.html post=post %}
+	{% endfor %}
+{% endcapture %}
+
+{% capture categories %}
+	{% include index/categories.html %}
+{% endcapture %}
+
+{% include blog-layout.html main=posts aside=categories %}
+
+<section class="container mt-5">
+	{% include index/pagination.html justify="center" %}
+</section>

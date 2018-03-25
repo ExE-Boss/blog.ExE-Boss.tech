@@ -3,6 +3,17 @@
 
 # Except:
 !LICENSE
+!CNAME
+
+## Sources
+!/_*
+/_site
+!/static
+!_config.yml
+!*.html
+!*.xhtml
+!robots.txt
+!Gemfile*
 
 ## Git
 !/.gitattributes

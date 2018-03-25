@@ -1,0 +1,51 @@
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="{{ site.description }}" />
+<meta name="author" content="{{ site.author }}" />
+{% include content-security-policy.html %}
+<title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+<link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{% unless page.url == '/' %}{{ page.url | remove: '.html' }}{% else %}/{% endunless %}" />
+
+<link rel="icon" href="https://exe-boss.tech/static/img/favicon/desktop.ico" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha512-k78e1fbYs09TQTqG79SpJdV4yXq8dX6ocfP0bzQHReQSbEghnS6AQHE2BbZKns962YaqgQL16l7PkiiAHZYvXQ==" crossorigin="anonymous" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" />
+<link rel="stylesheet" type="text/css" href="https://exe-boss.tech/static/css/eb-theme.css" />
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/static/css/blog.css" />
+
+<script type="application/javascript" defer="true" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+<script type="application/javascript" defer="true" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha512-Ua/7Woz9L5O0cwB/aYexmgoaD7lw3dWe9FvXejVdgqu71gRog3oJgjSWQR55fwWx+WKuk8cl7UwA1RS6QCadFA==" crossorigin="anonymous"></script>
+<script type="application/javascript" defer="true" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha512-ANkGm5vSmtDaoFA/NB1nVJzOKOiI4a/9GipFtkpMG8Rg2Bz8R1GFf5kfL0+z0lcv2X/KZRugwrAlVTAgmxgvIg==" crossorigin="anonymous"></script>
+<script type="application/javascript" defer="true" src="https://exe-boss.tech/static/js/eb-util.js"></script>
+<script type="application/javascript" defer="true" src="https://exe-boss.tech/static/js/includes/global.js"></script>
+<script type="application/javascript" defer="true" src="https://exe-boss.tech/static/js/includes/favicon.js"></script>{% if layout.include-js %}
+
+{% if page.layout == "post" %}
+<script type="application/javascript" defer="true" src="https://unpkg.com/markdown@0.5.0/lib/markdown.js" integrity="sha512-gzFGtjuZUZA3jwZEX5dlDKiqqsUIdnVGCHem5jDkdQf9B6e6r9huN3ZSLjzgd+zmQeud3ARHiXJTlNkcgw+QbA==" crossorigin="anonymous"></script>
+{% endif %}
+{% for layout-js in layout.include-js %}<script type="application/javascript" defer="true" src="{{ site.baseurl }}/static/js/includes/{{ layout-js }}.js"></script>
+{% endfor %}{% endif %}
+<noscript id="global-head-link-icons-end"><link rel="apple-touch-icon-precomposed" href="https://exe-boss.tech/static/img/favicon/apple.png"/></noscript>
+{% if page.include-css %}
+{% for page-css in page.include-css %}<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/static/css/includes/{{ page-css }}.css" />
+{% endfor %}{% endif %}{% if page.include-js %}
+{% for page-js in page.include-js %}<script type="application/javascript" defer="true" src="{{ site.baseurl }}/static/js/includes/{{ page-js }}.js"></script>
+{% endfor %}{% endif %}{% if page.include-footer and page.include-footer != "false" %}
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/static/css/includes/footer.css" />
+<script type="application/javascript" defer="true" src="{{ site.baseurl }}/static/js/includes/footer.js"></script>
+{% endif %}
+{% if page.layout == "post" %}
+{% if page.author.github %}
+<link rel="preload" type="application/json" href="https://api.github.com/users/{{ page.author.github }}"/>
+{% endif %}
+<script id="post-data" type="application/json">
+	{
+		"author": {
+			"name":	{% if page.author.name %}"{{ page.author.name }}"{% else %}null{% endif %},
+			"github":	{% if page.author.github %}"{{ page.author.github }}"{% else %}null{% endif %}
+		},
+		"date":	{% if page.date %}"{{ page.date }}"{% else %}null{% endif %},
+		"title":	{% if page.title %}"{{ page.title }}"{% else %}null{% endif %}
+	}
+</script>
+{% endif %}

@@ -1,0 +1,10 @@
+<section class="container">
+	<div class="row">
+		<main class="col">
+			{{ include.main }}
+		</main>
+		<aside class="d-{% unless include.min-width == 'xs' %}none d-{% if include.min-width %}{{ include.min-width }}{% else %}sm{% endif %}-{% endunless %}block col-5 col-md-4 col-lg-3">
+			{{ include.aside }}
+		</aside>
+	</div>
+</section>

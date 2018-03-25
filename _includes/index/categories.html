@@ -1,0 +1,10 @@
+{% assign site_categories = site.posts | map: 'categories' | compact | uniq %}
+
+<section id="categories" class="bg-light rounded border p-3">
+	<h3>Categories</h3>
+	<nav class="nav flex-column">
+		{% for category in site_categories %}
+		<span class="nav-link">{{ category | capitalize }}</span>
+		{% endfor %}
+	</nav>
+</section>
